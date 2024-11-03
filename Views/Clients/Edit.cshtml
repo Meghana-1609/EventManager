@@ -1,0 +1,140 @@
+﻿@model EventManager.Models.Client
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<!-- Page Styles -->
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #fff7e6; /* Light orange background */
+        color: #333;
+    }
+
+    h1 {
+        color: #444;
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: auto;
+        padding: 20px;
+        background-color: #ffffff; /* White background for form container */
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h4 {
+        color: #ffa500; /* Orange accent color */
+        font-size: 1.5rem;
+        border-bottom: 2px solid #ffa500;
+        padding-bottom: 5px;
+        margin-bottom: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+        .form-group label {
+            font-weight: bold;
+            color: #555;
+        }
+
+    .form-control {
+        background-color: #fff5e0; /* Very light orange for input fields */
+        border-radius: 4px;
+        padding: 8px;
+        border: 1px solid #ddd;
+        transition: all 0.3s ease;
+    }
+
+        .form-control:focus {
+            background-color: #fff;
+            border-color: #ffa500; /* Orange border on focus */
+            outline: none;
+            box-shadow: 0 0 5px rgba(255, 165, 0, 0.3);
+        }
+
+    .text-danger {
+        font-size: 0.9rem;
+    }
+
+    .btn-primary {
+        background-color: #ffa500;
+        border-color: #ffa500;
+        padding: 10px 20px;
+        font-size: 1rem;
+        border-radius: 4px;
+        color: #fff;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-primary:hover {
+            background-color: #e69500;
+        }
+
+    .back-link {
+        display: inline-block;
+        margin-top: 20px;
+    }
+
+        .back-link a {
+            color: #ffa500;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+            .back-link a:hover {
+                text-decoration: underline;
+            }
+</style>
+
+<!-- Page Content -->
+<div class="container">
+    <h1>Edit Client</h1>
+    <h4>Client</h4>
+    <form asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <input type="hidden" asp-for="ClientId" />
+
+        <div class="form-group">
+            <label asp-for="Name" class="control-label"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="EmailId" class="control-label"></label>
+            <input asp-for="EmailId" class="form-control" />
+            <span asp-validation-for="EmailId" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="PhoneNumber" class="control-label"></label>
+            <input asp-for="PhoneNumber" class="form-control" />
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </div>
+    </form>
+
+    <div class="back-link">
+        <a asp-action="Index">Back to List</a>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

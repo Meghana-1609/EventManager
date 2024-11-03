@@ -1,0 +1,140 @@
+﻿@model EventManager.Models.EventEditViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<!-- Page Styles -->
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #fdfde1; /* Light yellow background */
+        color: #333;
+    }
+
+    h1 {
+        color: #444;
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: auto;
+        padding: 20px;
+        background-color: #ffffff; /* White background for form container */
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h4 {
+        color: #f2b600; /* Yellow accent color */
+        font-size: 1.5rem;
+        border-bottom: 2px solid #f2b600;
+        padding-bottom: 5px;
+        margin-bottom: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+        .form-group label {
+            font-weight: bold;
+            color: #555;
+        }
+
+    .form-control {
+        background-color: #fdfdf5; /* Very light yellow */
+        border-radius: 4px;
+        padding: 8px;
+        border: 1px solid #ddd;
+        transition: all 0.3s ease;
+    }
+
+        .form-control:focus {
+            background-color: #fff;
+            border-color: #f2b600; /* Yellow border on focus */
+            outline: none;
+            box-shadow: 0 0 5px rgba(242, 182, 0, 0.3);
+        }
+
+    .text-danger {
+        font-size: 0.9rem;
+        color: #d9534f;
+    }
+
+    .btn-primary {
+        background-color: #f2b600;
+        border-color: #f2b600;
+        padding: 10px 20px;
+        font-size: 1rem;
+        border-radius: 4px;
+        color: #fff;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-primary:hover {
+            background-color: #d1a200;
+        }
+
+    .back-link {
+        display: inline-block;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+        .back-link a {
+            color: #f2b600;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+            .back-link a:hover {
+                text-decoration: underline;
+            }
+</style>
+
+<!-- Page Content -->
+<div class="container">
+    <h1>Create Event</h1>
+    <h4>Event</h4>
+    <form asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-group">
+            <label asp-for="EventType" class="control-label"></label>
+            <input asp-for="EventType" class="form-control" />
+            <span asp-validation-for="EventType" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Date" class="control-label"></label>
+            <input asp-for="Date" class="form-control" type="date" />
+            <span asp-validation-for="Date" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Budget" class="control-label"></label>
+            <input asp-for="Budget" class="form-control" />
+            <span asp-validation-for="Budget" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-primary" />
+        </div>
+    </form>
+
+    <div class="back-link">
+        <a asp-action="Index">Back to List</a>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

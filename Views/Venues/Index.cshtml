@@ -1,0 +1,116 @@
+﻿@model IEnumerable<EventManager.Models.Venue>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!-- Page Styles -->
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #fff7e6; /* Light orange background */
+        color: #333;
+    }
+
+    h1 {
+        color: #444;
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-create {
+        background-color: #ffa500;
+        color: #ffffff;
+        padding: 8px 16px;
+        border-radius: 4px;
+        text-decoration: none;
+        margin-bottom: 15px;
+        display: inline-block;
+    }
+
+        .btn-create:hover {
+            background-color: #e69500;
+        }
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+        .table th, .table td {
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        .table thead {
+            background-color: #ffa500; /* Orange header */
+            color: #ffffff;
+        }
+
+        .table tbody tr:nth-child(even) {
+            background-color: #fff5e0;
+        }
+
+        .table tbody tr:hover {
+            background-color: #ffe5b4; /* Light hover effect */
+        }
+
+        .table th {
+            font-weight: bold;
+        }
+
+    .action-links a {
+        color: #ffa500;
+        text-decoration: none;
+        margin: 0 5px;
+    }
+
+        .action-links a:hover {
+            color: #e69500;
+            text-decoration: underline;
+        }
+</style>
+
+<!-- Page Content -->
+<div class="container">
+    <h1>Venues</h1>
+    <p>
+        <a asp-action="Create" class="btn-create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.First().VenueName)</th>
+                <th>@Html.DisplayNameFor(model => model.First().Location)</th>
+                <th>@Html.DisplayNameFor(model => model.First().Capacity)</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.VenueName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Location)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Capacity)</td>
+                    <td class="action-links">
+                        <a asp-action="Edit" asp-route-id="@item.VenueId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.VenueId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.VenueId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

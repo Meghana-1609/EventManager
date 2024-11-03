@@ -1,0 +1,120 @@
+﻿@model EventManager.Models.Booking
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<!-- Page Styles -->
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9fb;
+        color: #333;
+    }
+
+    h1 {
+        color: #444;
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h4 {
+        color: #007bff;
+        font-size: 1.5rem;
+        border-bottom: 2px solid #007bff;
+        padding-bottom: 5px;
+        margin-bottom: 20px;
+    }
+
+    .row {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
+    .col-sm-2 {
+        font-weight: bold;
+        color: #555;
+        min-width: 100px;
+    }
+
+    .col-sm-10 {
+        background-color: #f2f2f2;
+        padding: 10px 15px;
+        border-radius: 4px;
+        margin-left: 5px;
+    }
+
+    .actions {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+        .actions a {
+            color: #ffffff;
+            background-color: #007bff;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+
+            .actions a:hover {
+                background-color: #0056b3;
+            }
+
+</style>
+
+<!-- Page Content -->
+<div class="container">
+    <h1>Booking Details</h1>
+
+    <h4>Booking Information</h4>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Client)
+        </dt>
+        <dd class="col-sm-10">
+            <strong>Name:</strong> @Html.DisplayFor(model => model.Client.Name) <br />
+            <strong>Email:</strong> @Html.DisplayFor(model => model.Client.EmailId)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Event)
+        </dt>
+        <dd class="col-sm-10">
+            <strong>Type:</strong> @Html.DisplayFor(model => model.Event.EventType) <br />
+            <strong>Budget:</strong> @Html.DisplayFor(model => model.Event.Budget)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Venue)
+        </dt>
+        <dd class="col-sm-10">
+            <strong>Name:</strong> @Html.DisplayFor(model => model.Venue.VenueName) <br />
+            <strong>Location:</strong> @Html.DisplayFor(model => model.Venue.Location)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BookingDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BookingDate)
+        </dd>
+    </dl>
+
+    <div class="actions">
+        <a asp-action="Edit" asp-route-id="@Model?.BookingId">Edit</a>
+        <a asp-action="Index">Back to List</a>
+    </div>
+</div>

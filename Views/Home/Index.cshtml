@@ -1,0 +1,117 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!-- Page Styles -->
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #e0f7fa; /* Light teal background */
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+        background-color: #ffffff; /* White background for main container */
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        text-align: center;
+    }
+
+    .header {
+        background-color: #006064; /* Navy blue */
+        padding: 30px 20px;
+        color: #ffffff;
+        border-radius: 8px 8px 0 0;
+    }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+    .details {
+        margin: 20px 0;
+        line-height: 1.6;
+    }
+
+    .details-item {
+        font-size: 1.1rem;
+        margin: 10px 0;
+        color: #006064; /* Navy blue for detail text */
+    }
+
+    .cta-button {
+        background-color: #00838f; /* Teal for button */
+        color: #ffffff;
+        padding: 12px 24px;
+        font-size: 1rem;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 20px;
+        transition: background-color 0.3s;
+    }
+
+        .cta-button:hover {
+            background-color: #005662; /* Darker teal on hover */
+        }
+
+    .info-section {
+        margin-top: 30px;
+        padding: 20px;
+        border-radius: 8px;
+        background-color: #f0f4f8; /* Light gray-blue background */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+        .info-section h3 {
+            color: #00838f; /* Teal for section headers */
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+    .footer {
+        margin-top: 40px;
+        font-size: 0.9rem;
+        color: #777;
+    }
+</style>
+
+<!-- Page Content -->
+<div class="container">
+    <!-- Header -->
+    <div class="header">
+        <h1>Meghana Event Management</h1>
+        <p>Your Event, Our Priority - Wichita, Kansas</p>
+    </div>
+
+    <!-- Event Management Details -->
+    <div class="details">
+        <p class="details-item"><strong>Location:</strong> Wichita, Kansas</p>
+        <p class="details-item"><strong>WSU ID:</strong> H848P727</p>
+        <p class="details-item"><strong>Contact:</strong> info@meghanaevents.com | (316) 555-1234</p>
+    </div>
+
+    <!-- Call-to-Action Button -->
+    <a asp-controller="Bookings" asp-action="Index" class="cta-button">View Bookings</a>
+
+    <!-- Additional Information Section -->
+    <div class="info-section">
+        <h3>Our Services</h3>
+        <p>We provide end-to-end event management solutions for weddings, corporate events, parties, and more. Our team strives to make your occasions unforgettable.</p>
+        <h3>Upcoming Events</h3>
+        <p>Stay informed on the latest happenings in Wichita! Join us for networking events, exhibitions, and community gatherings that bring people together.</p>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        &copy; 2024 Meghana Event Management. All Rights Reserved.
+    </div>
+</div>
